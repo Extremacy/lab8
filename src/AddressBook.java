@@ -7,6 +7,12 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+/**
+ * Author: PJ Duimstra
+ * Date: 22/3/21
+ * Creates an AddressBook object class and uses JFrame to create GUI to allow for user input
+ * and displaying information from the contacts file.
+ */
 public class AddressBook extends JFrame {
     private JFrame frame;
     private JPanel panel;
@@ -15,6 +21,9 @@ public class AddressBook extends JFrame {
     private JLabel nameLabel, addressLabel, phoneLabel, emailLabel;
     private JTextArea textArea;
 
+    /**
+     * Default constructor for the AddressBook
+     */
     public AddressBook() {
         frame = new JFrame();
 
@@ -67,6 +76,11 @@ public class AddressBook extends JFrame {
         panel.add(textArea);
     }
 
+    /**
+     * Reads contacts to a file and displays them to the user in a JTextArea.
+     * @param fileName the file being read from.
+     * @param textArea the text area to output the file info to.
+     */
     public static void readContactsFromFile(String fileName, JTextArea textArea) {
         Scanner fileReader = null;
         try {
@@ -81,6 +95,10 @@ public class AddressBook extends JFrame {
         }
     }
 
+    /**
+     * Writes a given set of contacts from a JTextArea to a file.
+     * @param textArea the file where contacts are sourced.
+     */
     public static void writeContactsToFile(JTextArea textArea) {
         File contacts = new File("contacts.txt");
         PrintWriter writer = null;
@@ -94,6 +112,11 @@ public class AddressBook extends JFrame {
         }
     }
 
+    /**
+     * Main driver method for the AddressBook application.
+     * Initializes the object, sets the size, default close operation, and visibility of the object.
+     * @param args n/a
+     */
     public static void main(String[] args) {
         AddressBook addressBook = new AddressBook();
         final int FRAME_WIDTH = 680;
